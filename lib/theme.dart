@@ -7,6 +7,8 @@ ThemeData theme() {
     scaffoldBackgroundColor: Colors.white,
     fontFamily: "OpenSans",
     appBarTheme: appBarTheme(),
+    primaryColor: kPrimaryColor,
+    accentColor: kPrimaryColor,
     textTheme: textTheme(),
     inputDecorationTheme: inputDecorationTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
