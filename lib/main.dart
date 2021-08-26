@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         title: 'Libelli',
         debugShowCheckedModeBanner: false,
         theme: theme(),
-        home: SignInScreen(),
+        home: HomeScreen(),
         routes: routes,
     );
   }

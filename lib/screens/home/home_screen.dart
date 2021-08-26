@@ -1,3 +1,5 @@
+import 'package:app_livres/screens/home/widgets/categories.dart';
+import 'package:app_livres/screens/home/widgets/topbar.dart';
 import 'package:app_livres/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,55 +24,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: getProportionateScreenHeight(24, screenHeight),),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(18, screenWidth)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Stack(
-                          overflow: Overflow.visible,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(getProportionateScreenWidth(9, screenWidth)),
-                              width: getProportionateScreenWidth(36, screenWidth),
-                              height: getProportionateScreenHeight(36, screenHeight),
-                              child: SvgPicture.asset("assets/icons/menu.svg"),
-                            )
-                          ],
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Stack(
-                          overflow: Overflow.visible,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(getProportionateScreenWidth(9, screenWidth)),
-                              width: getProportionateScreenWidth(36, screenWidth),
-                              height: getProportionateScreenHeight(36, screenHeight),
-                              child: SvgPicture.asset("assets/icons/bell.svg"),
-                            ),
-                            Positioned(
-                              top: 8,
-                              right: 4,
-                              child: Container(
-                                height: getProportionateScreenWidth(8, screenWidth),
-                                width: getProportionateScreenWidth(8,screenHeight),
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFF4848),
-                                  shape: BoxShape.circle,
-                                  border: Border.all(width: 1, color: Colors.white),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                TopBar(screenWidth: screenWidth, screenHeight: screenHeight),
                 SizedBox(height: getProportionateScreenHeight(24, screenHeight),),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(18, screenWidth)),
@@ -201,6 +155,16 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Categories(),
+                SizedBox(height: getProportionateScreenHeight(24, screenHeight),),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(18, screenWidth)),
+                  child: Container(
+                    width: double.infinity,
+                    height: 50,
+                    color: Colors.red,
+                  ),
+                )
                 ],
             ),
           ),
@@ -210,3 +174,4 @@ class HomeScreen extends StatelessWidget {
   }
 
 }
+
