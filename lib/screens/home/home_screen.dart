@@ -19,6 +19,38 @@ class HomeScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
+        bottomNavigationBar: Container(
+          padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(35, screenWidth)),
+          height: getProportionateScreenHeight(65, screenHeight),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 20,
+            )]
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                  onPressed: () => {},
+                  icon: SvgPicture.asset("assets/icons/wallet_icon.svg")
+              ),
+              IconButton(
+                  onPressed: () => {},
+                  icon: SvgPicture.asset("assets/icons/home_icon_selected.svg")
+              ),
+              IconButton(
+                  onPressed: () => {},
+                  icon: SvgPicture.asset("assets/icons/chat_icon.svg")
+              ),
+              IconButton(
+                  onPressed: () => {},
+                  icon: SvgPicture.asset("assets/icons/profile_icon.svg")
+              ),
+            ],
+          ),
+        ),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -155,16 +187,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Categories(),
-                SizedBox(height: getProportionateScreenHeight(24, screenHeight),),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(18, screenWidth)),
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    color: Colors.red,
-                  ),
-                )
+                Categories(screenWidth: screenWidth, screenHeight: screenHeight),
                 ],
             ),
           ),
