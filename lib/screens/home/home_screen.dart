@@ -1,3 +1,4 @@
+import 'package:app_livres/screens/home/widgets/ads.dart';
 import 'package:app_livres/screens/home/widgets/categories.dart';
 import 'package:app_livres/screens/home/widgets/topbar.dart';
 import 'package:app_livres/size_config.dart';
@@ -188,6 +189,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Categories(screenWidth: screenWidth, screenHeight: screenHeight),
+                Ads(screenWidth: screenWidth, screenHeight: screenHeight),
                 ],
             ),
           ),
