@@ -77,7 +77,7 @@ class Ad extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "\$"+double.parse((book.price).toStringAsFixed(2)).toString(),
+                              book.parsedPrice,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,

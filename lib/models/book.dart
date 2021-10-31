@@ -11,9 +11,9 @@ extension BookStateExtension on BookState {
 
   Color get bgColor {
     switch (this) {
-      case BookState.High : return Color(0xffacffc3).withOpacity(0.5);
-      case BookState.Medium : return Color(0xffffc99b).withOpacity(0.5);
-      case BookState.Low : return Color(0xffff7373).withOpacity(0.5);
+      case BookState.High : return Color(0xff32D418);
+      case BookState.Medium : return Color(0xffFFA724);
+      case BookState.Low : return Color(0xffff0000);
     }
   }
 
@@ -27,9 +27,9 @@ extension BookStateExtension on BookState {
 
   String get text {
     switch (this) {
-      case BookState.High : return "Très bon";
-      case BookState.Medium : return "Bon";
-      case BookState.Low : return "Mauvais";
+      case BookState.High : return "Très bon état";
+      case BookState.Medium : return "Bon état";
+      case BookState.Low : return "Mauvais état";
     }
   }
 
@@ -56,5 +56,9 @@ class BookAd {
     required this.state,
     required this.price
   });
+
+  String get parsedPrice {
+    return "\$"+double.parse((this.price).toStringAsFixed(2)).toString();
+  }
 
 }
