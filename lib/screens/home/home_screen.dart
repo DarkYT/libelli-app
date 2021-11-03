@@ -1,3 +1,4 @@
+import 'package:app_livres/screens/account/account_screen.dart';
 import 'package:app_livres/screens/home/widgets/ads.dart';
 import 'package:app_livres/screens/home/widgets/categories.dart';
 import 'package:app_livres/screens/home/widgets/topbar.dart';
@@ -20,38 +21,7 @@ class HomeScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        bottomNavigationBar: Container(
-          padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(35, screenWidth)),
-          height: getProportionateScreenHeight(65, screenHeight),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 20,
-            )]
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                  onPressed: () => {},
-                  icon: SvgPicture.asset("assets/icons/wallet_icon.svg")
-              ),
-              IconButton(
-                  onPressed: () => {},
-                  icon: SvgPicture.asset("assets/icons/home_icon_selected.svg")
-              ),
-              IconButton(
-                  onPressed: () => {},
-                  icon: SvgPicture.asset("assets/icons/chat_icon.svg")
-              ),
-              IconButton(
-                  onPressed: () => {},
-                  icon: SvgPicture.asset("assets/icons/profile_icon.svg")
-              ),
-            ],
-          ),
-        ),
+        bottomNavigationBar: BottomBar(screenWidth: screenWidth, screenHeight: screenHeight, currentPage: Pages.Home),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -197,6 +167,67 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
 
+enum Pages {
+  Home,
+  Account,
+  Wallet,
+  Messages
+}
+
+class BottomBar extends StatelessWidget {
+  const BottomBar({
+    Key? key,
+    required this.screenWidth,
+    required this.screenHeight,
+    required this.currentPage
+  }) : super(key: key);
+
+  final double screenWidth;
+  final double screenHeight;
+  final Pages currentPage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(35, screenWidth)),
+      height: getProportionateScreenHeight(65, screenHeight),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [BoxShadow(
+          color: Colors.black.withOpacity(0.1),
+          blurRadius: 20,
+        )]
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+              onPressed: () => {
+
+              },
+              icon: SvgPicture.asset("assets/icons/wallet_icon"+ ((currentPage == Pages.Wallet) ? "_selected" : "")+".svg")
+          ),
+          IconButton(
+              onPressed: () => {
+                Navigator.pushNamed(context, HomeScreen.routeName)
+              },
+              icon: SvgPicture.asset("assets/icons/home_icon"+ ((currentPage == Pages.Home) ? "_selected" : "")+".svg")
+          ),
+          IconButton(
+              onPressed: () => {},
+              icon: SvgPicture.asset("assets/icons/chat_icon"+ ((currentPage == Pages.Messages) ? "_selected" : "")+".svg")
+          ),
+          IconButton(
+              onPressed: () => {
+                Navigator.pushNamed(context, AccountScreen.routeName)
+              },
+              icon: SvgPicture.asset("assets/icons/profile_icon"+ ((currentPage == Pages.Account) ? "_selected" : "")+".svg")
+          ),
+        ],
+      ),
+    );
+  }
 }
 
