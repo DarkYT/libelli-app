@@ -1,3 +1,4 @@
+import 'package:app_livres/screens/scan/scan_result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,7 +23,9 @@ class TopBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ScanResultScreen.routeName);
+            },
             child: Stack(
               overflow: Overflow.visible,
               children: [
@@ -30,7 +33,7 @@ class TopBar extends StatelessWidget {
                   padding: EdgeInsets.all(getProportionateScreenWidth(9, screenWidth)),
                   width: getProportionateScreenWidth(36, screenWidth),
                   height: getProportionateScreenHeight(36, screenHeight),
-                  child: SvgPicture.asset("assets/icons/menu.svg"),
+                  child: SvgPicture.asset("assets/icons/maximize.svg"),
                 )
               ],
             ),
