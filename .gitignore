@@ -1,3 +1,6 @@
+# Config file
+lib/config.dart
+
 # Miscellaneous
 *.class
 *.log
